@@ -1,5 +1,8 @@
 pipeline {
   agent any
+  options {
+    skipDefaultCheckout()
+  }
   environment {
     DOCKER_CREDENTIALS = credentials('dockerhub-creds')
     IMAGE_NAME = "shivroop/flask-docker-app"
