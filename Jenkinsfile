@@ -5,6 +5,11 @@ pipeline {
     IMAGE_NAME = "shivroop/flask-docker-app"
   }
   stages {
+    stage('Checkout Code') {
+      steps {
+        git url: 'https://github.com/shivroopsharma/docker-flask-app.git', branch: 'main', credentialsId: 'github-creds'
+      }
+    }
     stage('Build Docker Image') {
       steps {
         script {
